@@ -1,7 +1,6 @@
-import signal
 import RPi.GPIO as GPIO
 
-from watch_constants.BoardConstants import *
+from src.watch_constants.BoardConstants import *
 
 
 class CreateBoardControls:

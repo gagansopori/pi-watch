@@ -1,8 +1,7 @@
 import ST7789 as st7789
-from PIL import Image, ImageDraw, ImageFont, ImageTk
-import os, sys
+from PIL import Image, ImageDraw, ImageFont
 
-from watch_constants.DisplayConstants import *
+from src.watch_constants.DisplayConstants import *
 
 
 class CreateDisplay():
