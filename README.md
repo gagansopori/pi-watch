@@ -1,6 +1,7 @@
 # pi-watch
  
-I recently came across an IO board from PiMoroni called [Pirate Audio: Speaker for Raspberry Pi](https://shop.pimoroni.com/products/pirate-audio-mini-speaker?variant=31189753692243). This audio board has a small `1.3" (240x240) IPS LCD` display & a `1W speaker`. The display has an SPI interface and uses the `st7789` controller module & the audio is controlled by the onboard `MAX98357A` DAC chip. 
+I recently came across an IO board from PiMoroni called [Pirate Audio: Speaker for Raspberry Pi](https://shop.pimoroni.com/products/pirate-audio-mini-speaker?variant=31189753692243). 
+This audio board has a small `1.3" (240x240) IPS LCD` display & a `1W speaker`. The display has an SPI interface and uses the `st7789` controller module & the audio is controlled by the onboard `MAX98357A` DAC chip. 
 It fits perfectly on a [RaspberryPi Zero](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) and I instantly 
 thought of building something with it - maybe a micro-TV or something
 
