@@ -6,6 +6,6 @@ thought of building something with it - maybe a micro-TV or something
 
 PI Watch is a python based modern day simulation of a clock radio - at-least for Mark-I. 
 I hope to convert this project into something more important than just a dumb clock trying to wake you up every morning 
-by playing songs from your favorite stations on the internet radio/ streaming service.
+by playing songs from your favorite stations on the internet radio/streaming service.
 
-This is just one of the uses I will post more projects & update this readme as I am able to jot down more points.
+This is just one of the uses and I will post more projects & update this readme as I jot down more points.
