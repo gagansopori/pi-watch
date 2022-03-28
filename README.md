@@ -12,10 +12,10 @@ Pi-Watch is a python based modern day simulation of a clock radio - at-least for
 by playing songs from your favorite stations on the internet radio/streaming service.
 
 ### Hardware Requirements
-    - Pirate Audio: Speaker for Raspberry Pi (Depending on your use case, you can select from a variety of IO options)
-    - Raspberry Pi (Zero has the best form factor for this board, but you can use any Pi for it)
-    - Micro-SD Card (I'm using a 32GB Class 3 SD Card, but if you want a better performance, you should use a Class 10 SD card)
-    - 5V, 2A Power Supply
+ * [Pirate Audio: Speaker for Raspberry Pi](https://shop.pimoroni.com/products/pirate-audio-mini-speaker?variant=31189753692243) - Depending on your use case, you can select from a variety of IO options.
+ * [Raspberry Pi](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) - Zero has the best form factor for this board, but you can use any Pi for it.
+ * Micro-SD Card - I'm using a 32GB Class 3 SD Card, but if you want a better performance, you should use a Class 10 SD card
+ * [5V, 2A Power Supply Unit](https://www.raspberrypi.com/products/raspberry-pi-universal-power-supply/) - I'm using the official Raspberry Pi power supply unit, but you can use one of your preference.
 
 
 
