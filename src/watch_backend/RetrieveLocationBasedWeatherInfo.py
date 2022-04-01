@@ -63,6 +63,7 @@ class RetrieveLocationBasedWeatherInfo:
 
             current_condition = response_data['weather'][0]['main']
             current_condition_desc = response_data['weather'][0]['description']
+            # .title() just capitalizes first character of each word
             self.desc_cond = current_condition_desc.title()
         else:
             current_temperature = 0
