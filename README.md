@@ -5,17 +5,25 @@ I recently came across an IO board from PiMoroni called [Pirate Audio: Speaker f
 This audio board has a small `1.3" (240x240) IPS LCD` display & a `1W speaker`. The display has an SPI interface and 
 uses the `st7789` controller module & the audio is controlled by the onboard `MAX98357A` DAC chip. It fits perfectly on 
 a [RaspberryPi Zero](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) and I instantly thought of building 
-something with it - maybe a micro-TV or something which sounds cool, but I have to take into account the hardware restrictions 
-of a pi-zero & of the HAT I am using. <p/>
+something with it - maybe a micro-TV or something which sounds cool, but I have to take into account the hardware 
+restrictions of a pi-zero & of the HAT I am using. <p/>
 **Update**: I decided to pursue the micro-tv later & focus on building a smart clock-radio called pi-watch.
-Pi-Watch is a python based modern day simulation of a clock radio - at-least for Mark-I. I hope to convert this project into something more important than just a dumb clock trying to wake you up every morning 
-by playing songs from your favorite stations on the internet radio/streaming service.
+Pi-Watch is a python based modern day simulation of a clock radio - at-least for Mark-I. I hope to convert this project 
+into something more important than just a dumb clock trying to wake you up every morning by playing songs from your 
+favorite stations on the internet radio/streaming service.
 
 ## Hardware
  * [Pirate Audio: Speaker for Raspberry Pi](https://shop.pimoroni.com/products/pirate-audio-mini-speaker?variant=31189753692243) - Depending on your use case, you can select from a variety of IO options.
  * [Raspberry Pi](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) - Zero has the best form factor for this board, but you can use any Pi for it.
- * Micro-SD Card - I'm using a 32GB Class 3 SD Card, but if you want a better performance, you should use a Class 10 SD card
  * [5V, 2A Power Supply Unit](https://www.raspberrypi.com/products/raspberry-pi-universal-power-supply/) - I'm using the official Raspberry Pi power supply unit, but you can use one of your preference.
+ * Micro-SD Card - I'm using a 32GB Class 3 SD Card, but if you want a better performance, you should use a Class 10 SD card
+
+## Installation
+
+
+
+
+
 
 
 

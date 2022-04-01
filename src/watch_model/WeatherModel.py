@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import List
 
 '''
     {
@@ -46,18 +47,147 @@ from dataclasses import dataclass
 }
     '''
 
+'''
+{
+Response from: ip-api.com/json
+    "status": "success",
+    "country": "United States",
+    "countryCode": "US",
+    "region": "AR",
+    "regionName": "Arkansas",
+    "city": "Bella Vista",
+    "zip": "72715",
+    "lat": 36.4691,
+    "lon": -94.3219,
+    "timezone": "America/Chicago",
+    "isp": "Cox Communications Inc.",
+    "org": "Cox Communications",
+    "as": "AS22773 Cox Communications Inc.",
+    "query": "70.178.40.20"
+}
+'''
 
-class WeatherModel:
+# class WeatherModel:
+#
+#     # I am currently looking into the use of @property annotations & decorators for getter & setter methods
+#     # However I am not sure on how to use them right now, so i am manually creating mapping methods
+#     def __init__(self):
+#         self._current_condition, self._current_condition_desc, self._icon_id = 0, 0, 0
+#         self._temp, self._feels_like, self._temp_min, self._temp_max, self._pressure, self._humidity = 0, 0, 0, 0, 0, 0
+#
+#     @property
+#     def current_condition(self):
+#         return self._current_condition
+#
+#     @current_condition.setter
+#     def current_condition(self, current_condition):
+#         self._current_condition = current_condition
+#
+#     @property
+#     def current_condition_desc(self):
+#         return self._current_condition_desc
+#
+#     @current_condition_desc.setter
+#     def current_condition_desc(self, current_condition_desc):
+#         self._current_condition_desc = current_condition_desc
+#
+#     @property
+#     def icon_id(self):
+#         return self._icon_id
+#
+#     @icon_id.setter
+#     def icon_id(self, icon_id):
+#         self._icon_id = icon_id
+#
+#     @property
+#     def temp(self):
+#         return self._temp
+#
+#     @temp.setter
+#     def temp(self, temperature):
+#         self._temp = temperature
+#
+#     @property
+#     def feels_like(self):
+#         return self._feels_like
+#
+#     @temp.setter
+#     def feels_like(self, feels_like):
+#         self._feels_like = feels_like
 
-    # I am currently looking into the use of @property annotations & decorators for getter & setter methods
-    # However I am not sure on how to use them right now, so i am manually creating mapping methods
-    def __init__(self):
-        self.lat, self.lon = 0, 0
 
-    @property
-    def coord(self):
-        return self.lat, self.lon
-
-    @coord.setter
-    def coord(self, lat, lon):
-        self.lat, self.lon = lat, lon
+# @dataclass
+# class ResponseCoordinates:
+#     lon: float
+#     lat: float
+#
+#
+# @dataclass
+# class WeatherDescription:
+#     id: int
+#     main: str
+#     description: str
+#     icon: str
+#
+#
+# @dataclass
+# class TemperatureMetrics:
+#     temp: float
+#     feels_like: float
+#     temp_min: float
+#     temp_max: float
+#     pressure: int
+#     humidity: int
+#
+#     def __init__(self):
+#         self.feels_like = 0
+#
+#     @property
+#     def feels_like(self):
+#         return self.feels_like
+#
+#     @feels_like.setter
+#     def feels_like(self, feels_like):
+#         self.feels_like = feels_like
+#
+#
+# @dataclass
+# class WindMetrics:
+#     speed: float
+#     deg: float
+#
+#
+# @dataclass
+# class CloudTypes:
+#     all: int
+#
+#
+# @dataclass
+# class EarthSystems:
+#     type: int
+#     id: int
+#     country: str
+#     sunrise: int
+#     sunset: int
+#
+#
+# @dataclass
+# class WeatherResponse:
+#     coord: ResponseCoordinates
+#     weather: List[WeatherDescription]
+#     base: str
+#     main: TemperatureMetrics
+#     visibility: int
+#     wind: WindMetrics
+#     clouds: CloudTypes
+#     dt: int
+#     sys: EarthSystems
+#     timezone: int
+#     id: int
+#     name: str
+#     cod: int
+#
+#
+# @dataclass
+# class FinalData:
+#     weather_response: WeatherResponse
