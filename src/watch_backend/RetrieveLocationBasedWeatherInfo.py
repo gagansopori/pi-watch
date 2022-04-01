@@ -59,7 +59,7 @@ class RetrieveLocationBasedWeatherInfo:
             # current conditions
             current_temperature = response_data['main']['temp']
             temperature = self.scale_temperature(current_temperature, self.country)
-            self.general_temperature = "%.0f%s" % (temperature, deg)
+            self.general_temperature = "%.0f%s" % (temperature, degree_symbol)
 
             current_condition = response_data['weather'][0]['main']
             current_condition_desc = response_data['weather'][0]['description']
@@ -67,7 +67,7 @@ class RetrieveLocationBasedWeatherInfo:
         else:
             current_temperature = 0
             temperature = self.scale_temperature(current_temperature, self.country)
-            self.general_temperature = "%.0f%s" % (temperature, deg)
+            self.general_temperature = "%.0f%s" % (temperature, degree_symbol)
 
         return self.desc_cond, self.general_temperature, self.icon_id
 
@@ -76,7 +76,7 @@ class RetrieveLocationBasedWeatherInfo:
     the given country uses.
     '''
     def scale_temperature(self, current_temp, country):
-        if country in Imperial_Countries:
+        if country in imperial_countries:
             return (current_temp * (9 / 5)) - 459.67
         else:
             return current_temp - 273

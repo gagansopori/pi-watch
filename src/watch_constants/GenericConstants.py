@@ -1,8 +1,8 @@
 # Imperial SI Unit Country List
-Imperial_Countries = ['US', 'LR', 'MM']
+imperial_countries = ['US', 'LR', 'MM']
 
 # UTF-8 for Degree Sign
-deg = u'\u00b0'
+degree_symbol = u'\u00b0'
 
 ip_api_url = "http://ip-api.com/json"
 '''
