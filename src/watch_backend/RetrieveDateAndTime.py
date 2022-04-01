@@ -10,14 +10,14 @@ class RetrieveDateAndTime:
         hour = Time.strftime('%I')
         minute = Time.strftime('%M')
         meridian = Time.strftime('%p')
-        self.time_text = ("%s:%s %s" % (hour, minute, meridian))
+        self.time_text = ("{}:{} {}".format(hour, minute, meridian))
 
         return self.time_text
 
     def fetch_date(self):
-        day_of_month = Time.strftime('%d')
+        date_of_month = Time.strftime('%d')
         month_of_year = Time.strftime('%b')
         day_of_week = Time.strftime('%a')
-        self.date_text = ("%s, %s %s" %(day_of_week, month_of_year, day_of_month))
+        self.date_text = ("{}, {} {}".format(day_of_week, month_of_year, date_of_month))
 
         return self.date_text
