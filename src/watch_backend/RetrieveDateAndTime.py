@@ -7,6 +7,7 @@ class RetrieveDateAndTime:
         self.date_text = 'Fetching Date...'
 
     def fetch_time(self):
+        # %H for 24hr
         hour = Time.strftime('%I')
         minute = Time.strftime('%M')
         meridian = Time.strftime('%p')
@@ -15,9 +16,11 @@ class RetrieveDateAndTime:
         return self.time_text
 
     def fetch_date(self):
-        date_of_month = Time.strftime('%d')
+        day_of_month = Time.strftime('%d')
+        # %B for full Month name | %m for Month as a number (1,12)
         month_of_year = Time.strftime('%b')
-        day_of_week = Time.strftime('%a')
-        self.date_text = ("{}, {} {}".format(day_of_week, month_of_year, date_of_month))
+        # %A for full Weekday Name
+        weekday_name = Time.strftime('%a')
+        self.date_text = ("{}, {} {}".format(weekday_name, month_of_year, day_of_month))
 
         return self.date_text
