@@ -7,6 +7,7 @@ from src.watch_constants.DisplayConstants import *
 
 class CreateDisplay:
     def __init__(self, *args, **kwargs):
+        # setting up the spi display on Pirate Audio Board
         self.display = st7789.ST7789(port=0,
                                      cs=st7789.BG_SPI_CS_FRONT,
                                      dc=9,

@@ -1,4 +1,3 @@
-
 # General Constants
 SCREEN_HEIGHT = 240
 SCREEN_WIDTH = 240
