@@ -31,7 +31,7 @@ class CreateDisplay:
         self.display.set_backlight(0)
 
     def build_font(self, text_h):
-        return ImageFont.truetype('%s/zz2/Oswald.ttf' %(os.getcwd()), text_h)
+        return ImageFont.truetype('%s/pi-watch/src/resources/Oswald.ttf' %(os.getcwd()), text_h)
 
     def build_context(self):
         kntxt = Image.new('RGBA', self.display.size, (RED, GREEN, BLUE, ALPHA))
