@@ -31,11 +31,19 @@ class CreateDisplay:
         self.display.set_backlight(0)
 
     def build_font(self, text_h):
-        return ImageFont.truetype('%s/pi-watch/src/resources/Oswald.ttf' %(os.getcwd()), text_h)
+        # Toggle comments for linux vs windows
+        # return ImageFont.truetype('D:/zz2/Oswald.ttf', text_h)
+        return ImageFont.truetype('%s/pi-watch/src/resources/Oswald.ttf' % (os.getcwd()), text_h)
 
-    def build_context(self):
-        kntxt = Image.new('RGBA', self.display.size, (RED, GREEN, BLUE, ALPHA))
+    def build_context(self, kntxt):
         return ImageDraw.Draw(kntxt)
 
-    def build_text(self, display_font, display_text, display_context):
+    def measure_text(self, display_font, display_text, display_context):
         return display_context.textsize(display_text, font=display_font)
+
+    # Toggle Comments if you're not running this on a Raspberry-Pi with an attached SPI display
+    def display_information(self, img_obj):
+        self.display.display(img_obj)
+
+    # def display_information(self, img_obj):
+    #     img_obj.show()
