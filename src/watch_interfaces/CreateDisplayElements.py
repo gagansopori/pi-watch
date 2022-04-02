@@ -2,8 +2,6 @@ import ST7789 as st7789
 import os
 from PIL import Image, ImageDraw, ImageFont
 
-from src.watch_constants.DisplayConstants import *
-
 
 class CreateDisplay:
     def __init__(self, *args, **kwargs):
