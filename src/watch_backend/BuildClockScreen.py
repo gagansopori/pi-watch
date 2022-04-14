@@ -18,7 +18,7 @@ class BuildClockScreen:
 
     def clock_face(self, weather_dict):
         # create a new image - Basically a black background
-        img = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), (RED, GREEN, BLUE, ALPHA_TRANSPARENT))
+        img = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), (RED, GREEN, BLUE, ALPHA_OPAQUE))
         img_w, img_h = img.size
 
         # build the fonts

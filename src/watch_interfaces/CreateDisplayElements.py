@@ -39,6 +39,11 @@ class CreateDisplay:
     def measure_text(self, display_font, display_text, display_context):
         return display_context.textsize(display_text, font=display_font)
 
+    def resize_icons(self, icon_id):
+        pass
+
+
+
     # Toggle Comments if you're not running this on a Raspberry-Pi with an attached SPI display
     def display_information(self, img_obj):
         self.display.display(img_obj)

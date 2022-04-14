@@ -66,11 +66,62 @@ Response from: ip-api.com/json
     "query": "70.178.40.20"
 }
 '''
-
+''' 
+{
+  "message": "accurate",
+  "cod": "200",
+  "count": 1,
+  "list": [
+    {
+      "id": 2643743,
+      "name": "London",
+      "coord": {
+        "lat": 51.5085,
+        "lon": -0.1258
+      },
+      "main": {
+        "temp": 280.15,
+        "pressure": 1012,
+        "humidity": 81,
+        "temp_min": 278.15,
+        "temp_max": 281.15
+      },
+      "dt": 1485791400,
+      "wind": {
+        "speed": 4.6,
+        "deg": 90
+      },
+      "sys": {
+        "country": "GB"
+      },
+      "rain": null,
+      "snow": null,
+      "clouds": {
+        "all": 90
+      },
+      "weather": [
+        {
+          "id": 701,
+          "main": "Mist",
+          "description": "mist",
+          "icon": "50d"
+        },
+        {
+          "id": 300,
+          "main": "Drizzle",
+          "description": "light intensity drizzle",
+          "icon": "09d"
+        }
+      ]
+    }
+  ]
+}
+'''
 # class WeatherModel:
 #
 #     # I am currently looking into the use of @property annotations & decorators for getter & setter methods
-#     # However I am not sure on how to use them right now, so i am manually creating mapping methods
+#     # However I am not sure on how to use them right now. I am also looking into how dataclasses work, & how I can
+#     # integrate dataclasses with property to achieve better abstraction.
 #     def __init__(self):
 #         self._current_condition, self._current_condition_desc, self._icon_id = 0, 0, 0
 #         self._temp, self._feels_like, self._temp_min, self._temp_max, self._pressure, self._humidity = 0, 0, 0, 0, 0, 0
