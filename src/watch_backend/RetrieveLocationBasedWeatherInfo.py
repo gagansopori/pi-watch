@@ -14,7 +14,6 @@ class RetrieveLocationBasedWeatherInfo:
     would be used in getting the weather information for your area from the weather service.
     @:returns - latitude, longitude
     '''
-
     def get_location(self):
         try:
             with urllib.request.urlopen(ip_api_url) as url_response:
@@ -34,7 +33,6 @@ class RetrieveLocationBasedWeatherInfo:
     @:param - latitude, longitude
     @:return - current_temperature, weather_condition, icon_id
     '''
-
     def get_weather(self, lat, lon):
         weather_url = '{}lat={}&lon={}&appid={}' .format(base_weather_url, lat, lon, owm_key)
         try:
