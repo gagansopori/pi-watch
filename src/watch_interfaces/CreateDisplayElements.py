@@ -29,9 +29,10 @@ class CreateDisplay:
         self.display.set_backlight(0)
 
     def build_font(self, text_h):
-        # Toggle comments for linux vs windows
-        # return ImageFont.truetype('D:/zz2/Oswald.ttf', text_h)
-        return ImageFont.truetype('%s/pi-watch/src/resources/Oswald.ttf' % (os.getcwd()), text_h)
+        if os.name == 'nt':
+            return ImageFont.truetype('D:/zz2/Oswald.ttf', text_h)
+        else:
+            return ImageFont.truetype('%s/pi-watch/src/resources/Oswald.ttf' % (os.getcwd()), text_h)
 
     def build_context(self, kntxt):
         return ImageDraw.Draw(kntxt)
@@ -39,14 +40,19 @@ class CreateDisplay:
     def measure_text(self, display_font, display_text, display_context):
         return display_context.textsize(display_text, font=display_font)
 
-    def resize_icons(self, icon_id):
-        pass
+    def resize_icons(self, icon_id, text_h):
+        if os.name == 'nt':
+            return Image.open('D:/icons3/%s.png' % icon_id).resize((text_h, text_h))
+        else:
+            return Image.open('%s/pi-watch/src/resources/icons/%s.png' % (os.getcwd(), icon_id)).resize(
+                (text_h, text_h))
 
-
-
-    # Toggle Comments if you're not running this on a Raspberry-Pi with an attached SPI display
+    '''
+        os.name returns 'nt' on a windows device; it's needed because display() is a method from ST7789 library meant to 
+        run an SPI based display attached to a Raspberry-Pi GPIO.
+    '''
     def display_information(self, img_obj):
-        self.display.display(img_obj)
-
-    # def display_information(self, img_obj):
-    #     img_obj.show()
+        if os.name == 'nt':
+            img_obj.show()
+        else:
+            self.display.display(img_obj)

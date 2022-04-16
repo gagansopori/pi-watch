@@ -41,6 +41,8 @@ class BuildClockScreen:
         date_text = self.time_and_date.fetch_date()
         date_w, date_h = self.clock_screen.measure_text(date_font, date_text, drawing_context)
 
+        # weather_icon = self.clock_screen.resize_icons(weather_dict['icon_id'], font_size_weather)
+        # image_context = self.clock_screen.build_context(img)
         weather_text = "{} | {}".format(weather_dict['general_temperature'], weather_dict['desc_cond'])
         weather_w, weather_h = self.clock_screen.measure_text(weather_font, weather_text, drawing_context)
 
