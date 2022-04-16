@@ -19,6 +19,7 @@ favorite stations on the internet radio/streaming service.
  * Micro-SD Card - I'm using a 32GB Class 3 SD Card, but if you want a better performance, you should use a Class 10 SD card
 
 ## Installation
+You'll need to set a few things up before you can actually use this program on your rPi.
 
 
 

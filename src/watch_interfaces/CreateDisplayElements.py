@@ -42,10 +42,10 @@ class CreateDisplay:
 
     def resize_icons(self, icon_id, text_h):
         if os.name == 'nt':
-            return Image.open('D:/icons3/%s.png' % icon_id).resize((text_h, text_h))
+            return Image.open('D:/icons3/%s.png' % icon_id).convert('RGBA').resize((text_h, text_h))
         else:
-            return Image.open('%s/pi-watch/src/resources/icons/%s.png' % (os.getcwd(), icon_id)).resize(
-                (text_h, text_h))
+            return Image.open('%s/pi-watch/src/resources/icons/%s.png' % (os.getcwd(), icon_id)).convert('RGBA')\
+                .resize((text_h, text_h))
 
     '''
         os.name returns 'nt' on a windows device; it's needed because display() is a method from ST7789 library meant to 

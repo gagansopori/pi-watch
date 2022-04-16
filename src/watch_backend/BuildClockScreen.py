@@ -17,8 +17,8 @@ class BuildClockScreen:
         self.weather_dict = {}
 
     def clock_face(self, weather_dict):
-        # create a new image - Basically a black background
-        img = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), (RED, GREEN, BLUE, ALPHA_OPAQUE))
+        # create a new image - Basically a transparent background for adding an icon later on
+        img = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), (RED, GREEN, BLUE, ALPHA_TRANSPARENT))
         img_w, img_h = img.size
 
         # build the fonts
@@ -41,10 +41,12 @@ class BuildClockScreen:
         date_text = self.time_and_date.fetch_date()
         date_w, date_h = self.clock_screen.measure_text(date_font, date_text, drawing_context)
 
-        # weather_icon = self.clock_screen.resize_icons(weather_dict['icon_id'], font_size_weather)
-        # image_context = self.clock_screen.build_context(img)
         weather_text = "{} | {}".format(weather_dict['general_temperature'], weather_dict['desc_cond'])
         weather_w, weather_h = self.clock_screen.measure_text(weather_font, weather_text, drawing_context)
+
+        weather_icon = self.clock_screen.resize_icons(weather_dict['icon_id'], font_size_time)
+        icon_x, icon_y = int((img_w - weather_icon.width) / 2), int(
+            (time_h + date_h + weather_h + weather_icon.height)*1.1)
 
         # Border Padding: in-case its needed
         vertical_padding = int(time_h / 10)
@@ -60,8 +62,9 @@ class BuildClockScreen:
         drawing_context.text(((img_w - weather_w) / 2, ((time_h + date_h + weather_h) * 1.2)),
                              weather_text, font=weather_font, fill=(255, 255, 255, 255), padx=5)
 
+        kntxt.paste(weather_icon, (icon_x, icon_y))
         final_media = Image.alpha_composite(img, kntxt)
-        img.close()
+        img.close(), kntxt.close()
 
         return final_media
 
