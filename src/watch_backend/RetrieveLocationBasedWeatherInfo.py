@@ -28,9 +28,8 @@ class RetrieveLocationBasedWeatherInfo:
             # set the latitude & longitude
             self.lat, self.lon = ip_data['lat'], ip_data['lon']
             return self.lat, self.lon
-        except Exception as e:
-            if e.__cause__ in ConnectionError:
-                print("Connection Error... Using Default Location!")
+        except ConnectionError as e:
+            print("Connection Error... Using Default Location!")
             return self.lat, self.lon
 
     '''
