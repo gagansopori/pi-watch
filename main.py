@@ -1,6 +1,10 @@
 from src.watch_backend.BuildClockScreen import BuildClockScreen
 
 
-if __name__ == '__main__':
+def main():
     pimoroni = BuildClockScreen()
     pimoroni.start_clock()
+
+
+if __name__ == '__main__':
+    main()

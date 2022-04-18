@@ -34,8 +34,8 @@ class CreateDisplay:
         else:
             return ImageFont.truetype('%s/pi-watch/src/resources/Oswald.ttf' % (os.getcwd()), text_h)
 
-    def build_context(self, kntxt):
-        return ImageDraw.Draw(kntxt)
+    def build_context(self, drawing_context):
+        return ImageDraw.Draw(drawing_context)
 
     def measure_text(self, display_font, display_text, display_context):
         return display_context.textsize(display_text, font=display_font)
