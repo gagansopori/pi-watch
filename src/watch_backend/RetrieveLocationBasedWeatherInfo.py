@@ -1,13 +1,15 @@
 import urllib.request, json
+from urllib.error import URLError
 
 from src.watch_constants.GenericConstants import *
 
 
 class RetrieveLocationBasedWeatherInfo:
     def __init__(self):
-        self.desc_cond: str = None
-        self.general_temperature: float = None
-        self.icon_id: str = None
+        # setting these values with some defaults here - you are more than welcome to modify it to your interests.
+        self.desc_cond: str = "Yeehaw"
+        self.general_temperature: float = 420.00
+        self.icon_id: str = "01d"
 
         # location will default to Bentonville City Square
         self.lat: float = 36.3725
@@ -27,10 +29,9 @@ class RetrieveLocationBasedWeatherInfo:
             url_request.close()
             # set the latitude & longitude
             self.lat, self.lon = ip_data['lat'], ip_data['lon']
-            return self.lat, self.lon
-        except ConnectionError as e:
+        except (ConnectionError, URLError):
             print("Connection Error... Using Default Location!")
-            return self.lat, self.lon
+        return self.lat, self.lon
 
     '''
     This method takes geographical coordinates & calls the open-weather api to determine the weather conditions for a given
@@ -45,18 +46,16 @@ class RetrieveLocationBasedWeatherInfo:
             response_query = api_response.read().decode('utf-8')
             response_data = json.loads(response_query)
             api_response.close()
-        except ConnectionError as ce:
+        except (ConnectionError, URLError) as ce:
             response_data = {'Error': 'Cannot connect to internet at the moment: {}'.format(ce)}
-        except ValueError as ve:
-            response_data = {'Error': ve}
-        except TypeError as te:
-            response_data = {'Error': te}
+        except (ValueError, TypeError) as e:
+            response_data = {'Error': 'Cannot interpret the response due to data or type mismatch: {}'.format(e)}
 
         if 'Error' not in response_data.keys():
             # country, city
             self.country, city = response_data['sys']['country'], response_data['name']
 
-            # iconCode (currentCondition)
+            # icon-code for current conditions
             self.icon_id = response_data['weather'][0]['icon']
 
             # current conditions
@@ -69,9 +68,9 @@ class RetrieveLocationBasedWeatherInfo:
             # .title() just capitalizes first character of each word
             self.desc_cond = current_condition_desc.title()
         else:
-            current_temperature = 0.0
-            temperature = self.scale_temperature(current_temperature, self.country)
-            self.general_temperature = "%.0f%s" % (temperature, degree_symbol)
+            current_temperature = 420.00
+            # temperature = self.scale_temperature(current_temperature, self.country)
+            self.general_temperature = "%.0f%s" % (current_temperature, degree_symbol)
 
         return self.desc_cond, self.general_temperature, self.icon_id
 
