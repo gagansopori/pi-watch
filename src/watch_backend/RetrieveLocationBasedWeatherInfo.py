@@ -1,7 +1,9 @@
 import urllib.request, json
 from urllib.error import URLError
 
-from src.watch_constants.GenericConstants import *
+from src.watch_constants.GenericConstants import ip_api_url, base_weather_url, owm_key, degree_symbol, \
+    imperial_countries
+from src.watch_model.WeatherModel import FinalData
 
 
 class RetrieveLocationBasedWeatherInfo:
@@ -65,7 +67,7 @@ class RetrieveLocationBasedWeatherInfo:
 
             current_condition = response_data['weather'][0]['main']
             current_condition_desc = response_data['weather'][0]['description']
-            # .title() just capitalizes first character of each word
+            # .title() capitalizes first character of each word
             self.desc_cond = current_condition_desc.title()
         else:
             current_temperature = 420.00

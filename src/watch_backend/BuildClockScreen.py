@@ -1,10 +1,11 @@
 from PIL import Image
 import time
 
-from src.watch_constants.DisplayConstants import *
 from src.watch_backend.RetrieveDateAndTime import RetrieveDateAndTime
 from src.watch_backend.RetrieveLocationBasedWeatherInfo import RetrieveLocationBasedWeatherInfo
 from src.watch_interfaces.CreateDisplayElements import CreateDisplay
+from src.watch_constants.DisplayConstants import SCREEN_WIDTH, SCREEN_HEIGHT, TWENTY_MINS, BLACK_TRANSPARENT, \
+    WHITE_TRANSPARENT, FIVE_SEC_DELAY
 
 
 class BuildClockScreen:
@@ -18,7 +19,7 @@ class BuildClockScreen:
 
     def clock_face(self, weather_dict):
         # create a new image - Basically a transparent background for adding an icon later on
-        img = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), (RED, GREEN, BLUE, ALPHA_TRANSPARENT))
+        img = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), BLACK_TRANSPARENT)
         img_w, img_h = img.size
 
         # build the fonts
@@ -32,7 +33,7 @@ class BuildClockScreen:
         weather_font = self.clock_screen.build_font(font_size_weather)
 
         # Build a drawing context
-        kntxt = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), (RED, GREEN, BLUE, ALPHA_TRANSPARENT))
+        kntxt = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), BLACK_TRANSPARENT)
         drawing_context = self.clock_screen.build_context(kntxt)
 
         time_text = self.time_and_date.fetch_time()
@@ -54,13 +55,13 @@ class BuildClockScreen:
 
         # Actual Text Drawing on the canvas takes place below
         drawing_context.text(((img_w - time_w) / 2, (time_h - vertical_padding)),
-                             time_text.upper(), font=time_font, fill=(255, 255, 255, 255), padx=5)
+                             time_text.upper(), font=time_font, fill=WHITE_TRANSPARENT, padx=5)
 
         drawing_context.text(((img_w - date_w) / 2, ((time_h + date_h) * 1.15)),
-                             date_text, font=date_font, fill=(255, 255, 255, 255), padx=5)
+                             date_text, font=date_font, fill=WHITE_TRANSPARENT, padx=5)
 
         drawing_context.text(((img_w - weather_w) / 2, ((time_h + date_h + weather_h) * 1.2)),
-                             weather_text, font=weather_font, fill=(255, 255, 255, 255), padx=5)
+                             weather_text, font=weather_font, fill=WHITE_TRANSPARENT, padx=5)
 
         kntxt.paste(weather_icon, (icon_x, icon_y))
         final_media = Image.alpha_composite(img, kntxt)
@@ -74,14 +75,13 @@ class BuildClockScreen:
     '''
     def start_clock(self):
         while True:
-            if self.ctr == 0 or self.ctr == TWENTY_MINS:
+            if self.ctr == 0 or self.ctr >= TWENTY_MINS:
                 lat, lon = self.weather.get_location()
                 self.weather_dict['desc_cond'], self.weather_dict['general_temperature'], self.weather_dict[
                     'icon_id'] = self.weather.get_weather(lat, lon)
-                if self.ctr == TWENTY_MINS:
-                    self.ctr = 0
+                self.ctr = 0
             self.ctr += 1
 
             img_obj = self.clock_face(self.weather_dict)
             self.clock_screen.display_information(img_obj)
-            time.sleep(5)
+            time.sleep(FIVE_SEC_DELAY)
