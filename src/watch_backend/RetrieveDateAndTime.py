@@ -11,7 +11,7 @@ class RetrieveDateAndTime:
         hour = Time.strftime('%I')
         minute = Time.strftime('%M')
         meridian = Time.strftime('%p')
-        self.time_text = ("{}:{} {}".format(hour, minute, meridian))
+        self.time_text = f"{hour}:{minute} {meridian}"
 
         return self.time_text
 
@@ -21,6 +21,6 @@ class RetrieveDateAndTime:
         month_of_year = Time.strftime('%b')
         # %A for full Weekday Name
         weekday_name = Time.strftime('%a')
-        self.date_text = ("{}, {} {}".format(weekday_name, month_of_year, day_of_month))
+        self.date_text = f"{weekday_name}, {month_of_year} {day_of_month}"
 
         return self.date_text

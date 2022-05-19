@@ -9,7 +9,7 @@ from src.watch_model.WeatherModel import FinalData
 class RetrieveLocationBasedWeatherInfo:
     def __init__(self):
         # setting these values with some defaults here - you are more than welcome to modify it to your interests.
-        self.desc_cond: str = "Yeehaw"
+        self.desc_cond: str = "Yee-haw"
         self.general_temperature: float = 420.00
         self.icon_id: str = "01d"
 
@@ -42,7 +42,7 @@ class RetrieveLocationBasedWeatherInfo:
     @:return - current_temperature, weather_condition, icon_id
     '''
     def get_weather(self, lat, lon) -> (str, float, str):
-        weather_url = '{}lat={}&lon={}&appid={}'.format(base_weather_url, lat, lon, owm_key)
+        weather_url = f'{base_weather_url}lat={lat}&lon={lon}&appid={owm_key}'
         try:
             api_response = urllib.request.urlopen(weather_url)
             response_query = api_response.read().decode('utf-8')
@@ -63,7 +63,7 @@ class RetrieveLocationBasedWeatherInfo:
             # current conditions
             current_temperature = response_data['main']['temp']
             temperature = self.scale_temperature(current_temperature, self.country)
-            self.general_temperature = "%.0f%s" % (temperature, degree_symbol)
+            self.general_temperature = f"{temperature:.0f}{degree_symbol}"
 
             current_condition = response_data['weather'][0]['main']
             current_condition_desc = response_data['weather'][0]['description']
@@ -72,7 +72,7 @@ class RetrieveLocationBasedWeatherInfo:
         else:
             current_temperature = 420.00
             # temperature = self.scale_temperature(current_temperature, self.country)
-            self.general_temperature = "%.0f%s" % (current_temperature, degree_symbol)
+            self.general_temperature = f"{current_temperature:.0f}{degree_symbol}"
 
         return self.desc_cond, self.general_temperature, self.icon_id
 
