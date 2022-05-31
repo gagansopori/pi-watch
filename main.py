@@ -1,3 +1,6 @@
+"""
+@author: Gagan Sopori
+"""
 from src.watch_backend.BuildClockScreen import BuildClockScreen
 
 

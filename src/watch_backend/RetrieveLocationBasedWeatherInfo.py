@@ -55,7 +55,8 @@ class RetrieveLocationBasedWeatherInfo:
 
         if 'Error' not in response_data.keys():
             # country, city
-            self.country, city = response_data['sys']['country'], response_data['name']
+            self.country = response_data['sys']['country']
+            city = response_data['name']
 
             # icon-code for current conditions
             self.icon_id = response_data['weather'][0]['icon']

@@ -17,8 +17,13 @@ class BuildClockScreen:
         self.ctr = 0
         self.weather_dict = {}
 
+    ''' 
+    Utility method that prepares the UI view with data that needs to be displayed. It takes the weather & possibly 
+    location parameters and based on the screen size formats the the text size & placement position.
+    @:param - weather_dict -> {desc_condition : str, current_temp: float, icon_id: str}
+    '''
     def clock_face(self, weather_dict):
-        # create a new image - Basically a transparent background for adding an icon later on
+        # create a new image - Basically a transparent background for adding an icon later
         img = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), BLACK_TRANSPARENT)
         img_w, img_h = img.size
 
