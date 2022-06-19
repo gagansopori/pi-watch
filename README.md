@@ -14,14 +14,17 @@ favorite stations on the internet radio/streaming service.
 
 ## Hardware
  * [Pirate Audio: Speaker for Raspberry Pi](https://shop.pimoroni.com/products/pirate-audio-mini-speaker?variant=31189753692243) - Depending on your use case, you can select from a variety of IO options.
- * [Raspberry Pi](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) - Zero has the best form factor for this board, but you can use any Pi for it.
+ * [Raspberry Pi](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) - Zero has the best form factor for this board, but you can use any other Pi for it.
  * [5V, 2A Power Supply Unit](https://www.raspberrypi.com/products/raspberry-pi-universal-power-supply/) - I'm using the official Raspberry Pi power supply unit, but you can use one of your preference.
  * Micro-SD Card - I'm using a 32GB Class 3 SD Card, but if you want a better performance, you should use a Class 10 or higher SD-card.
  * [Raspberry Pi Case](https://www.adafruit.com/product/3252) - I'm using a clear-top case by [AdaFruit Industries](https://www.adafruit.com/) but there are a lot of other good options available depending on your use-case.
 
 ## Installation
-I'm going to assume that you already have a working pi set-up with your choice of OS & is fully updated. If not then refer to [this article]() to get started. 
-You'll need to set a few things up before you can actually use this program on your rPi.
+I'm going to assume that you already have a working pi set-up with your choice of OS & is fully updated. If not, refer to [this article]() to get started. Now, to be able 
+to run this program you'll need to set the following few up on your Pi:
+* Python3+ - Python 2 is EOL & this app was written in Python3. </p> ```sudo apt-get install python3 </n> sudo apt-get install pip3```
+* Git - To be able to clone the project initially & to pull any future updates & bug fixes
+* [ST7789 Display Module](https://pypi.org/project/ST7789/)
 
 
 
