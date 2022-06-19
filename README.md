@@ -27,7 +27,9 @@ sudo apt-get install python3
 sudo apt-get install pip3
 ```
 * Git - To be able to clone the project initially & to pull any future updates & bug fixes.
-```sudo apt-get install git```
+```
+sudo apt-get install git
+```
 * [ST7789 Display Module](https://pypi.org/project/ST7789/)
 
 
