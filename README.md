@@ -25,16 +25,20 @@ I'm going to assume that you already have a working pi set-up with your choice o
     ```
     sudo apt-get install python3
     ```
-  - After you've installed python, you'll need to a few other libraries as a pre-requisite to the display driver module we'll install later:
+  * After you've installed python, you'll need to a few other libraries as a pre-requisite to the display driver module we'll install later:
     ```
     sudo apt-get update
-    sudo apt-get install python-rpi.gpio python-spidev python-pil python-numpy
+    sudo apt-get install python3-rpi.gpio python3-spidev python3-pil python3-numpy
     ```
 * ST7789 Display Module - This is the driver for the display attached to the hat we're using.
   ```
-  sudo pip install ST7789
+  sudo pip3 install ST7789
   ```
-* Git - To be able to clone the project initially & to pull any future updates & bug fixes. </br>```sudo apt-get install git```
+  * This is an SPI based display, so you'll also need to enable I2C & SPI channels on your Pi. You can do this by changing Inteface Options in Raspi-Config (```sudo raspi-config```)
+* Git - To be able to clone the project initially & to pull any future updates & bug fixes.
+    ```
+    sudo apt-get install git
+    ```
 
 
 
