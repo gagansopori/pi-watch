@@ -26,7 +26,7 @@ I'm going to assume that you already have a working pi set-up with your choice o
     sudo apt-get update
     sudo apt-get install python3-rpi.gpio python3-spidev python3-pil python3-numpy
     ```
-* * Git - To be able to clone the project initially & to pull any future updates & bug fixes.
+* Git - To be able to clone the project initially & to pull any future updates & bug fixes.
   ```
   sudo apt-get install git
   ```
