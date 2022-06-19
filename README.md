@@ -30,7 +30,7 @@ I'm going to assume that you already have a working pi set-up with your choice o
   ```
   sudo pip3 install ST7789
   ```
-  * \* _This is an SPI based display, so you'll also need to enable I2C & SPI channels on your Pi. You can do this by changing Inteface Options in Raspi-Config (```sudo raspi-config```)_
+  >\* _This is an SPI based display, so you'll also need to enable I2C & SPI channels on your Pi. You can do this by changing Inteface Options in Raspi-Config (```sudo raspi-config```)_
 * Git - To be able to clone the project initially & to pull any future updates & bug fixes.
   ```
   sudo apt-get install git
