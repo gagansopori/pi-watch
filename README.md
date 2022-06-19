@@ -26,7 +26,7 @@ I'm going to assume that you already have a working pi set-up with your choice o
     sudo apt-get update
     sudo apt-get install python3-rpi.gpio python3-spidev python3-pil python3-numpy
     ```
-* ST7789 Display Module - This is the driver for the display attached to the hat we're using.
+* [ST7789 Display Module](https://pypi.org/project/ST7789/) - This is the driver for the display attached to the hat we're using.
   ```
   sudo pip3 install ST7789
   ```
@@ -35,7 +35,7 @@ I'm going to assume that you already have a working pi set-up with your choice o
   ```
   sudo apt-get install git
   ```
-* OpenWeatherMaps Developer Access - It's free to use for non-commercial purposes, but you do need to signup for [developer access](https://openweathermap.org/price). Once done, you'll need to update your api-key in the properties file. (I'll integrate secrets at a later point to keep the codebase separate)
+* [OpenWeatherMaps Developer Access](https://openweathermap.org/) - It's free to use for non-commercial purposes, but you do need to signup for [developer access](https://openweathermap.org/price). Once done, you'll need to update your api-key in the properties file. (I'll integrate secrets at a later point to keep the codebase separate)
 
 
 ## Running the Application
