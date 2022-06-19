@@ -30,11 +30,11 @@ I'm going to assume that you already have a working pi set-up with your choice o
     sudo apt-get update
     sudo apt-get install python-rpi.gpio python-spidev python-pil python-numpy
     ```
-  * ST7789 Display Module - This is the driver for the display attached to the hat we're using.
-    ```
-    sudo pip install ST7789
-    ```
-  * Git - To be able to clone the project initially & to pull any future updates & bug fixes. </br>```sudo apt-get install git```
+* ST7789 Display Module - This is the driver for the display attached to the hat we're using.
+  ```
+  sudo pip install ST7789
+  ```
+* Git - To be able to clone the project initially & to pull any future updates & bug fixes. </br>```sudo apt-get install git```
 
 
 
