@@ -36,17 +36,31 @@ I'm going to assume that you already have a working pi set-up with your choice o
   ```
   * This is an SPI based display, so you'll also need to enable I2C & SPI channels on your Pi. You can do this by changing Inteface Options in Raspi-Config (```sudo raspi-config```)
 * Git - To be able to clone the project initially & to pull any future updates & bug fixes.
+  ```
+  sudo apt-get install git
+  ```
+* OpenWeatherMaps Developer Access - It's free to use for non-commercial purposes, but you do need to signup for [developer access](https://openweathermap.org/price). Once done, you'll need to update your api-key in the properties file. (I'll integrate secrets at a later point to keep the codebase separate)
+
+
+## Running the Application
+Now that we've set everything up, its time to get the app & run it on your pi.
+ - Get the app using git:
+   ```
+    git clone https://github.com/gagansopori/pi-watch.git
+   ```
+ - Run the `main.py` file using commandline:
+   ```
+    python3 /location-to-your-project/main.py
+   ```
+ - If you want to set this up as a cron job you can use crontab from linux as such:
     ```
-    sudo apt-get install git
-    ```
+   crontab -e
+   ```
+   - Setup the task to run everytime you reboot.
+   ```
+   @reboot python3 /location-to-your-project/main.py 
+   ```
 
+<p/>
 
-
-
-
-
-
-
-
-
-This is just one of the uses, and I will post more projects & update this readme as I jot down more points.
+That's it. Your weather station is ready to go. This is just one of the uses, and I will post more & update this readme as add more functionalities to this project
