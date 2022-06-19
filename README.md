@@ -21,14 +21,20 @@ favorite stations on the internet radio/streaming service.
 
 ## Installation
 I'm going to assume that you already have a working pi set-up with your choice of OS & is fully updated. If not, refer to [this article]() to get started. Now, to be able to run this program you'll need to set the following few up on your Pi:
-* Python-3 - Python-2 is EOL & this app was written in Python3. </br>```sudo apt-get install python3```
+* Python-3 - Python-2 is EOL & this app was written in Python3.
+    ```
+    sudo apt-get install python3
+    ```
   * After you've installed python, you'll need to a few other libraries as a pre-requisite to the display driver module we'll install later:
     ```
     sudo apt-get update
     sudo apt-get install python-rpi.gpio python-spidev python-pil python-numpy
     ```
-* ST7789 Display Module - This is the driver for the display attached to the hat we're using. </br> ```sudo pip install ST7789```
-* Git - To be able to clone the project initially & to pull any future updates & bug fixes. </br>```sudo apt-get install git```
+  * ST7789 Display Module - This is the driver for the display attached to the hat we're using.
+    ```
+    sudo pip install ST7789
+    ```
+  * Git - To be able to clone the project initially & to pull any future updates & bug fixes. </br>```sudo apt-get install git```
 
 
 
