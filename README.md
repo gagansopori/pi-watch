@@ -59,4 +59,4 @@ Now that we've set everything up, its time to get the app & run it on your pi.
 
 <p/>
 
-That's it. Your weather station is ready to go. This is just one of the uses, and I will post more & update this readme as add more functionalities to this project
+That's it. Your clock is ready to go. This is just one of the uses, and I will post more & update this readme as add more functionalities to this project
