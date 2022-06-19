@@ -17,7 +17,7 @@ favorite stations on the internet radio/streaming service.
  * [Raspberry Pi](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) - Zero has the best form factor for this board, but you can use any Pi for it.
  * [5V, 2A Power Supply Unit](https://www.raspberrypi.com/products/raspberry-pi-universal-power-supply/) - I'm using the official Raspberry Pi power supply unit, but you can use one of your preference.
  * Micro-SD Card - I'm using a 32GB Class 3 SD Card, but if you want a better performance, you should use a Class 10 or higher SD-card.
- * [Raspberry Pi Case](https://www.adafruit.com/product/3252) - I'm using a clear-top case by [AdaFruit Industries](https://www.adafruit.com/) but there are a lot of other good options available depending on your use-case
+ * [Raspberry Pi Case](https://www.adafruit.com/product/3252) - I'm using a clear-top case by [AdaFruit Industries](https://www.adafruit.com/) but there are a lot of other good options available depending on your use-case.
 
 ## Installation
 I'm going to assume that you already have a working pi set-up with your choice of OS & is fully updated. If not then refer to [this article]() to get started. 
