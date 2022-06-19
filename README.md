@@ -21,12 +21,13 @@ favorite stations on the internet radio/streaming service.
 
 ## Installation
 I'm going to assume that you already have a working pi set-up with your choice of OS & is fully updated. If not, refer to [this article]() to get started. Now, to be able to run this program you'll need to set the following few up on your Pi:
-* Python3+ - Python 2 is EOL & this app was written in Python3.
+* Python-3 - Python-2 is EOL & this app was written in Python3.
 ```
 sudo apt-get install python3
 sudo apt-get install pip3
 ```
-* Git - To be able to clone the project initially & to pull any future updates & bug fixes
+* Git - To be able to clone the project initially & to pull any future updates & bug fixes.
+```sudo apt-get install git```
 * [ST7789 Display Module](https://pypi.org/project/ST7789/)
 
 
