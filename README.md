@@ -25,7 +25,7 @@ I'm going to assume that you already have a working pi set-up with your choice o
     ```
     sudo apt-get install python3
     ```
-  * After you've installed python, you'll need to a few other libraries as a pre-requisite to the display driver module we'll install later:
+  - After you've installed python, you'll need to a few other libraries as a pre-requisite to the display driver module we'll install later:
     ```
     sudo apt-get update
     sudo apt-get install python-rpi.gpio python-spidev python-pil python-numpy
