@@ -16,7 +16,7 @@ into something more important than just a dumb clock trying to wake you up every
  * Micro-SD Card - I'm using a 32GB Class 3 SD Card, but if you want a better performance, you should use a Class 10 or higher SD-card.
 
 ## Installation
-I'm going to assume that you already have a working pi set-up with your choice of OS & is fully updated. If not, refer to [this article]() to get started. Now, to be able to run this program you'll need to set the following few up on your Pi:
+I'm going to assume that you already have a working pi set-up with your choice of OS & is fully updated. If not, refer to [this article](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started) to get started. Now, to be able to run this program you'll need to set the following few up on your Pi:
 * Python-3 - Python-2 is EOL & this app was written in Python3.
     ```
     sudo apt-get install python3
