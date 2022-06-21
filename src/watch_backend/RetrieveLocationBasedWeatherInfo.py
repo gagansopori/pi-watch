@@ -19,16 +19,6 @@ class RetrieveLocationBasedWeatherInfo:
         self.country: str = "US"
 
     '''
-    Helper method to convert the temperature from Kelvin Scale to Fahrenheit or Celsius depending on the metric system 
-    the given country uses.
-    '''
-    def scale_temperature(self, current_temp, country) -> float:
-        if country in imperial_countries:
-            return (current_temp * (9 / 5)) - 459.67
-        else:
-            return current_temp - 273
-
-    '''
     This method hits a ip-based geo-location service to determine the geographical coordinates of your location which 
     would be used in getting the weather information for your area from the weather service.
     @:returns - latitude, longitude
@@ -87,4 +77,12 @@ class RetrieveLocationBasedWeatherInfo:
 
         return self.desc_cond, self.general_temperature, self.icon_id
 
-    
+    '''
+    Helper method to convert the temperature from Kelvin Scale to Fahrenheit or Celsius depending on the metric system 
+    the given country uses.
+    '''
+    def scale_temperature(self, current_temp, country) -> float:
+        if country in imperial_countries:
+            return (current_temp * (9 / 5)) - 459.67
+        else:
+            return current_temp - 273
