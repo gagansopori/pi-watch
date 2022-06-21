@@ -19,6 +19,16 @@ class RetrieveLocationBasedWeatherInfo:
         self.country: str = "US"
 
     '''
+    Helper method to convert the temperature from Kelvin Scale to Fahrenheit or Celsius depending on the metric system 
+    the given country uses.
+    '''
+    def scale_temperature(self, current_temp, country) -> float:
+        if country in imperial_countries:
+            return (current_temp * (9 / 5)) - 459.67
+        else:
+            return current_temp - 273
+
+    '''
     This method hits a ip-based geo-location service to determine the geographical coordinates of your location which 
     would be used in getting the weather information for your area from the weather service.
     @:returns - latitude, longitude
@@ -36,18 +46,18 @@ class RetrieveLocationBasedWeatherInfo:
         return self.lat, self.lon
 
     '''
-    This method takes geographical coordinates & calls the open-weather api to determine the weather conditions for a given
-    set of geo-coordinates.
+    This method takes geographical coordinates & calls the open-weather api to determine the weather conditions for a 
+    given set of geo-coordinates.
     @:param - latitude, longitude
     @:return - current_temperature, weather_condition, icon_id
     '''
     def get_weather(self, lat, lon) -> (str, float, str):
         weather_url = f'{base_weather_url}lat={lat}&lon={lon}&appid={owm_key}'
         try:
-            api_response = urllib.request.urlopen(weather_url)
-            response_query = api_response.read().decode('utf-8')
-            response_data = json.loads(response_query)
-            api_response.close()
+            with urllib.request.urlopen(weather_url) as api_request:
+                api_response = api_request.read().decode('utf-8')
+                response_data = json.loads(api_response)
+            api_request.close()
         except (ConnectionError, URLError) as ce:
             response_data = {'Error': 'Cannot connect to internet at the moment: {}'.format(ce)}
         except (ValueError, TypeError) as e:
@@ -77,12 +87,4 @@ class RetrieveLocationBasedWeatherInfo:
 
         return self.desc_cond, self.general_temperature, self.icon_id
 
-    '''
-    Helper method to convert the temperature from Kelvin Scale to Fahrenheit or Celsius depending on the metric system 
-    the given country uses.
-    '''
-    def scale_temperature(self, current_temp, country) -> float:
-        if country in imperial_countries:
-            return (current_temp * (9 / 5)) - 459.67
-        else:
-            return current_temp - 273
+    

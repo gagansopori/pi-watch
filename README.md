@@ -16,17 +16,18 @@ into something more important than just a dumb clock trying to wake you up every
  * Micro-SD Card - I'm using a 32GB Class 3 SD Card, but if you want a better performance, you should use a Class 10 or higher SD-card.
 
 ## Installation
-I'm going to assume that you already have a working pi set-up with your choice of OS & is fully updated. If not, refer to [this article](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started) to get started. Now, to be able to run this program you'll need to set the following few up on your Pi:
-* Python-3 - Python-2 is EOL & this app was written in Python3.
-    ```
-    sudo apt-get install python3
-    ```
+I'm going to assume that you already have a working pi set-up with your choice of OS & is fully updated. If not, refer to [this article](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started) to get started. Now, to be able to run this program you'll need to set the following few things up on your Pi:
+* Python-3 - All Pi OS's come with Python2 (unless you're using a LITE version, in which case you'll only get bare-metal OS files) which is now EOL & this app was written in Python3.
+  * To install Python-3 on your pi you need to do the following:
+      ```
+      sudo apt-get install python3
+      ```
   * After you've installed python, you'll need to a few other libraries as a pre-requisite to the display driver module we'll install later:
     ```
     sudo apt-get update
     sudo apt-get install python3-rpi.gpio python3-spidev python3-pil python3-numpy
     ```
-* Git - To be able to clone the project initially & to pull any future updates & bug fixes.
+* Git - To be able to clone the project initially & to pull any future updates and/or bug fixes.
   ```
   sudo apt-get install git
   ```
@@ -34,8 +35,8 @@ I'm going to assume that you already have a working pi set-up with your choice o
   ```
   sudo pip3 install ST7789
   ```
-  \*_This is an SPI based display, so you'll also need to enable I2C & SPI channels on your Pi. You can do this by changing Inteface Options in Raspi-Config (```sudo raspi-config```)_<br/>
-* [OpenWeatherMaps Developer Access](https://openweathermap.org/) - It's free to use for non-commercial purposes, but you do need to signup for [developer access](https://openweathermap.org/price). Once done, you'll need to update your api-key in the properties file. (I'll integrate secrets at a later point to keep the codebase separate)
+  \*_This is an SPI based display, so you'll also need to enable I2C & SPI channels on your Pi. You can do this by changing 'Interface Options' in raspi-config (```sudo raspi-config```)_<br><br/>
+* [OpenWeatherMaps Developer Access](https://openweathermap.org/) - It's free to use for non-commercial purposes, but you do need to signup for [developer access](https://openweathermap.org/price). Once done, you'll need to update your api-key in the properties file. (I'll integrate secrets at a later point to keep this separate & secure)<br/>
 
 
 ## Running the Application
@@ -46,17 +47,19 @@ Now that we've set everything up, its time to get the app & run it on your pi.
    ```
  - Run the `main.py` file using commandline:
    ```
-    python3 /location-to-your-project/main.py
+    python3 /{location-to-your-project}/main.py
    ```
- - If you want to set this up as a cron job you can use crontab from linux as such:
-    ```
-   crontab -e
-   ```
-   - Setup the task to run everytime you reboot.
-   ```
-   @reboot python3 /location-to-your-project/main.py 
-   ```
+ - If you want to run this app upon startup you can use linux's crontab feature:
+   - From your teminal use the command below to open the crontab in edit mode:
+      ```
+     crontab -e
+     ```
+   - Set up the task to run everytime you reboot at the bottom of the file.
+     ```
+     @reboot python3 /{location-to-your-project}/main.py 
+     ```
+   - Save the file as-is, exit the editor & reboot your pi.
 
 <p/>
 
-That's it. Your clock is ready to go. This is just one of the uses, and I will post more & update this readme as add more functionalities to this project
+That's it. Your clock is ready to go. I will post more & update this readme as add more functionalities to this project as I keep on developing.
