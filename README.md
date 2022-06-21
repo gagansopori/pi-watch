@@ -1,5 +1,9 @@
 # pi-watch
- 
+
+[![Build Status](https://github.com/gagansopori/pi-watch/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/gagansopori/pi-watch/actions/workflows/codeql-analysis.yml/badge.svg)
+[![]()]()
+
+
 ## Introduction
 I recently came across an IO board from PiMoroni called [Pirate Audio: Speaker for Raspberry Pi](https://shop.pimoroni.com/products/pirate-audio-mini-speaker?variant=31189753692243). 
 This audio board has a small `1.3" (240x240) IPS LCD` display & a `1W speaker`. The display has an SPI interface and 
