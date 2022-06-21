@@ -36,18 +36,18 @@ class RetrieveLocationBasedWeatherInfo:
         return self.lat, self.lon
 
     '''
-    This method takes geographical coordinates & calls the open-weather api to determine the weather conditions for a given
-    set of geo-coordinates.
+    This method takes geographical coordinates & calls the open-weather api to determine the weather conditions for a 
+    given set of geo-coordinates.
     @:param - latitude, longitude
     @:return - current_temperature, weather_condition, icon_id
     '''
     def get_weather(self, lat, lon) -> (str, float, str):
         weather_url = f'{base_weather_url}lat={lat}&lon={lon}&appid={owm_key}'
         try:
-            api_response = urllib.request.urlopen(weather_url)
-            response_query = api_response.read().decode('utf-8')
-            response_data = json.loads(response_query)
-            api_response.close()
+            with urllib.request.urlopen(weather_url) as api_request:
+                api_response = api_request.read().decode('utf-8')
+                response_data = json.loads(api_response)
+            api_request.close()
         except (ConnectionError, URLError) as ce:
             response_data = {'Error': 'Cannot connect to internet at the moment: {}'.format(ce)}
         except (ValueError, TypeError) as e:
