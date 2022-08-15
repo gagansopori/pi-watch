@@ -2,6 +2,7 @@
 
 [![Build Status](https://github.com/gagansopori/pi-watch/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/gagansopori/pi-watch/actions/workflows/codeql-analysis.yml/badge.svg)
 [![]()]()
+![Python](https://img.shields.io/badge/python-3.x-default.svg)
 
 
 ## Introduction

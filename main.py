@@ -1,7 +1,7 @@
 """
 @author: Gagan Sopori
 """
-from src.watch_backend.BuildClockScreen import BuildClockScreen
+from src.services.BuildClockScreen import BuildClockScreen
 
 
 def main():

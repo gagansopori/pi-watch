@@ -9,7 +9,7 @@ FIVE_SEC_DELAY = 5
 
 # Palette Specifics
 RED = (255,0,0,0)
-GREEN = (0,255,0,0)
+GREEN = (0,255,0,128)
 BLUE = (0,0,255,0)
 BLACK_OPAQUE = (0,0,0,0)
 WHITE_OPAQUE = (255,255,255,0)
