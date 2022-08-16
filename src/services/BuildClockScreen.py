@@ -82,7 +82,7 @@ class BuildClockScreen:
 
         # build the icons
         # weather
-        weather_icon = self.clock_screen.resize_icons(weather_data.icon_id, font_size_time)
+        weather_icon = self.clock_screen.resize_icons(weather_data.icon_id, (font_size_time + vertical_padding))
         weather_icon_x, weather_icon_y = int((img_w - weather_icon.width) / 2), int((vertical_padding + time_h + date_h + weather_h))
 
         # wind
