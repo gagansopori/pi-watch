@@ -47,7 +47,7 @@ class BuildClockScreen:
 
     def clock_face(self, weather_data, current_time):
         # Border Padding: in-case its needed
-        vertical_padding = 20
+        vertical_padding = 25
         horizontal_padding = 5
 
         # create a new image - Basically a transparent background for adding an icon later
@@ -66,13 +66,13 @@ class BuildClockScreen:
         time_w, time_h = self.clock_screen.measure_text(time_font, time_text.upper(), drawing_context)
 
         # date
-        font_size_date = int(img_h / 8)
+        font_size_date = int(img_h / 7)
         date_font = self.clock_screen.build_font(font_size_date)
         date_text = f"{current_time.weekday_name}, {current_time.month_of_year} {current_time.day_of_month}"
         date_w, date_h = self.clock_screen.measure_text(date_font, date_text, drawing_context)
 
         # weather
-        font_size_weather = int(img_h / 10)
+        font_size_weather = int(img_h / 9)
         weather_font = self.clock_screen.build_font(font_size_weather)
         weather_text = f"{weather_data.general_temperature:.0f}{degree_symbol} | {weather_data.condition_description}"
         weather_w, weather_h = self.clock_screen.measure_text(weather_font, weather_text, drawing_context)
