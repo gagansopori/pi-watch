@@ -78,7 +78,7 @@ class BuildClockScreen:
         weather_w, weather_h = self.clock_screen.measure_text(weather_font, weather_text, drawing_context)
 
         # wind
-        wind_text = f"{weather_data.wind_speed:.0f}"
+        # wind_text = f"{weather_data.wind_speed:.0f}"
 
         # build the icons
         # weather
@@ -86,8 +86,8 @@ class BuildClockScreen:
         weather_icon_x, weather_icon_y = int((img_w - weather_icon.width) / 2), int((vertical_padding + time_h + date_h + weather_h))
 
         # wind
-        wind_icon = self.clock_screen.resize_icons('North', font_size_time).rotate(180)
-        wind_icon_x, wind_icon_y = int((horizontal_padding + weather_icon_x + weather_icon.width)), int((vertical_padding + time_h) * 1.1)
+        # wind_icon = self.clock_screen.resize_icons('North', font_size_time).rotate(180)
+        # wind_icon_x, wind_icon_y = int((horizontal_padding + weather_icon_x + weather_icon.width)), int((vertical_padding + time_h) * 1.1)
 
         # Actual Text Drawing on the canvas takes place below
         # time
