@@ -9,13 +9,13 @@ class RetrieveLocationBasedWeatherInfo:
     def __init__(self):
         self.weather_data = WeatherModel()
 
-    '''
-    This method takes geographical coordinates & calls the open-weather api to determine the weather conditions for a 
-    given set of geo-coordinates.
-    @:param - latitude, longitude
-    @:return - current_temperature, weather_condition, icon_id
-    '''
     def get_weather(self, geo_coordinates) -> WeatherModel:
+        """
+        This method takes geographical coordinates & calls the open-weather api to determine the weather conditions for
+        a given set of geo-coordinates.
+        @:param - latitude, longitude
+        @:return - current_temperature, weather_condition, icon_id
+        """
         # Build the location based url
         weather_url = f'{base_weather_url}lat={geo_coordinates.latitude}&lon={geo_coordinates.longitude}&appid={owm_key}'
         try:
@@ -55,11 +55,14 @@ class RetrieveLocationBasedWeatherInfo:
             current_temperature = 420.00
             self.weather_data.general_temperature = current_temperature
 
-    '''
-    Helper method to convert the temperature from Kelvin Scale to Fahrenheit or Celsius depending on the metric system 
-    the given country uses.
-    '''
     def scale_temperature(self, current_temp, weather_data) -> float:
+        """
+        Helper method to convert the temperature from Kelvin Scale to Fahrenheit or Celsius depending on the metric
+        system the given country uses.
+        :param - WeatherModel
+        :param - float (Kelvin)
+        :return - float (Fahrenheit/Celsius)
+        """
         if weather_data.country in imperial_countries:
             return (current_temp * (9 / 5)) - 459.67
         else:
