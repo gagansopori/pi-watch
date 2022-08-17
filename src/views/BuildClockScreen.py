@@ -1,51 +1,23 @@
 from PIL import Image
-import time
 
-from src.model.WeatherModel import WeatherModel
 from src.services.FetchUserLocation import FetchUserLocation
 from src.services.FetchDateTime import RetrieveDateAndTime
 from src.services.FetchCurrentWeather import RetrieveLocationBasedWeatherInfo
 from src.constants.GenericConstants import degree_symbol
-from src.watch_interfaces.CreateDisplayElements import CreateDisplay
-from src.constants.DisplayConstants import SCREEN_WIDTH, SCREEN_HEIGHT, TWENTY_MINS, BLACK_TRANSPARENT, \
-    WHITE_TRANSPARENT, FIVE_SEC_DELAY
+from src.configurations.CreateDisplayElements import CreateDisplay
+from src.constants.DisplayConstants import SCREEN_WIDTH, SCREEN_HEIGHT, BLACK_TRANSPARENT, WHITE_TRANSPARENT
 
 
 class BuildClockScreen:
     def __init__(self):
-        self.user_location = FetchUserLocation()
-        self.time_date = RetrieveDateAndTime()
-        self.weather = RetrieveLocationBasedWeatherInfo()
         self.clock_screen = CreateDisplay()
 
-        self.ctr = 0
-
-    '''
-    Driver/Controller method for getting location based weather. This method might have to be refactored when adding capabilities
-    to the clock such as Alarm, Music etc etc. Also when the clock makes DB inserts in later revisions.
-    '''
-
-    def start_clock(self):
-        weather_object = WeatherModel()
-        while True:
-            current_time = self.time_date.fetch_time()
-            if self.ctr == 0 or self.ctr >= TWENTY_MINS:
-                geo_location = self.user_location.get_location()
-                weather_object = self.weather.get_weather(geo_location)
-                self.ctr = 0
-            self.ctr += 1
-
-            img_obj = self.clock_face(weather_object, current_time)
-            self.clock_screen.display_information(img_obj)
-            time.sleep(FIVE_SEC_DELAY)
-
-    ''' 
-    Utility method that prepares the UI view with data that needs to be displayed. It takes the weather & possibly 
-    location parameters and based on the screen size formats the the text size & placement position.
-    @:param - weather_dict -> {desc_condition : str, current_temp: float, icon_id: str}
-    '''
-
     def clock_face(self, weather_data, current_time):
+        """
+        Utility method that prepares the UI view with data that needs to be displayed. It takes the weather & possibly
+        location parameters and based on the screen size formats the text size & placement position.
+        @:param - weather_dict -> {desc_condition : str, current_temp: float, icon_id: str}
+        """
         # Border Padding: in-case its needed
         vertical_padding = 25
         horizontal_padding = 5
@@ -83,7 +55,8 @@ class BuildClockScreen:
         # build the icons
         # weather
         weather_icon = self.clock_screen.resize_icons(weather_data.icon_id, (font_size_time + vertical_padding))
-        weather_icon_x, weather_icon_y = int((img_w - weather_icon.width) / 2), int((vertical_padding + time_h + date_h + weather_h))
+        weather_icon_x, weather_icon_y = int((img_w - weather_icon.width) / 2), int((vertical_padding + time_h + date_h
+                                                                                     + weather_h))
 
         # wind
         # wind_icon = self.clock_screen.resize_icons('North', font_size_time).rotate(180)
@@ -105,4 +78,6 @@ class BuildClockScreen:
         final_media = Image.alpha_composite(img, kntxt)
         img.close(), kntxt.close()
 
-        return final_media
+        self.clock_screen.display_information(final_media)
+
+        # return final_media

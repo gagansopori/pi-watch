@@ -1,11 +1,11 @@
 """
 @author: Gagan Sopori
 """
-from src.services.BuildClockScreen import BuildClockScreen
+from src.controller.MainController import MainController
 
 
 def main():
-    pimoroni = BuildClockScreen()
+    pimoroni = MainController()
     pimoroni.start_clock()
 
 
