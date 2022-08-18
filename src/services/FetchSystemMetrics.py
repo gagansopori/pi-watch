@@ -7,7 +7,8 @@ from src.configurations.CreateDisplayElements import CreateDisplay
 
 def fetch_cpu_temp():
     cpu_temp_file = open(cpu_temp_filepath, "r")
-    cpu_temp = cpu_temp_file.read()/1000
+    cpu_temp = cpu_temp_file.read()
+    cpu_temp_file.close()
     return cpu_temp
 
 

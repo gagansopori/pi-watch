@@ -33,8 +33,5 @@ class MainController:
                 self.ctr = 0
             self.ctr += 1
 
-            # img_obj = self.clock_view.clock_face(weather_object, current_time)
-            # self.build_display.display_information(img_obj)
-
             self.clock_view.clock_face(weather_object, current_time)
             time.sleep(FIVE_SEC_DELAY)

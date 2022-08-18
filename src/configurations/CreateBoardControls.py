@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 
-from src.constants.BoardConstants import *
+from src.constants.BoardConstants import BUTTONS, LABELS
 
 
 class CreateBoardControls:

@@ -1,8 +1,5 @@
 from PIL import Image
 
-from src.services.FetchUserLocation import FetchUserLocation
-from src.services.FetchDateTime import RetrieveDateAndTime
-from src.services.FetchCurrentWeather import RetrieveLocationBasedWeatherInfo
 from src.constants.GenericConstants import degree_symbol
 from src.configurations.CreateDisplayElements import CreateDisplay
 from src.constants.DisplayConstants import SCREEN_WIDTH, SCREEN_HEIGHT, BLACK_TRANSPARENT, WHITE_TRANSPARENT
@@ -79,5 +76,3 @@ class BuildClockScreen:
         img.close(), kntxt.close()
 
         self.clock_screen.display_information(final_media)
-
-        # return final_media
