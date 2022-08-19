@@ -2,6 +2,7 @@
 
 [![Build Status](https://github.com/gagansopori/pi-watch/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/gagansopori/pi-watch/actions/workflows/codeql-analysis.yml/badge.svg)
 [![]()]()
+![Python](https://img.shields.io/badge/python-3.x-default.svg)
 
 
 ## Introduction
@@ -9,7 +10,7 @@ I recently came across an IO board from PiMoroni called [Pirate Audio: Speaker f
 This audio board has a small `1.3" (240x240) IPS LCD` display & a `1W speaker`. The display has an SPI interface and 
 uses the `st7789` controller module & the audio is controlled by the onboard `MAX98357A` DAC chip. <p/>
 ![PIM485](https://cdn.shopify.com/s/files/1/0174/1800/products/pirate-audio-1_192x192.jpg?v=1574158580) ![PIM485](https://cdn.shopify.com/s/files/1/0174/1800/products/Pirate_Audio_Smol_Speaker_1_of_3_192x192.jpg?v=1574166432)<br/>
-It fits perfectly on a [RaspberryPi Zero](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) and I instantly thought of building something with it - maybe a modern day simulation of a clock radio - at-least for Mark-I. I hope to convert this project 
+It fits perfectly on a [RaspberryPi Zero](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) and I instantly thought of building something with it - maybe a modern day clock radio - at-least for Mark-I. I hope to convert this project 
 into something more important than just a dumb clock trying to wake you up every morning by playing songs from your favorite stations on the internet radio/streaming service.
 
 ## Hardware

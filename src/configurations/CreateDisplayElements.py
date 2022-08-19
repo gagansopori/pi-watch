@@ -47,12 +47,13 @@ class CreateDisplay:
             return Image.open('%s/pi-watch/src/resources/icons/%s.png' % (os.getcwd(), icon_id)).convert('RGBA')\
                 .resize((text_h, text_h))
 
-    '''
-        os.name returns 'nt' on a windows device; it's needed because display() is a method from ST7789 library meant to 
-        run an SPI based display attached to a Raspberry-Pi GPIO.
-    '''
     def display_information(self, img_obj):
+        """
+        os.name returns 'nt' on a Windows device; it's needed because display() is a method from ST7789 library meant
+        to run an SPI based display attached to a Raspberry-Pi GPIO.
+        """
         if os.name == 'nt':
+            print(u'\N{BLACK UP-POINTING TRIANGLE}')
             img_obj.show()
         else:
             self.display.display(img_obj)
