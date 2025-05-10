@@ -1,8 +1,8 @@
 import urllib.request, json
 from urllib.error import URLError
 
-from src.model.WeatherModel import WeatherModel
-from src.constants.GenericConstants import base_weather_url, owm_key, imperial_countries
+from application.model.WeatherModel import WeatherModel
+from application.constants.GenericConstants import base_weather_url, owm_key, imperial_countries
 
 
 class RetrieveLocationBasedWeatherInfo:

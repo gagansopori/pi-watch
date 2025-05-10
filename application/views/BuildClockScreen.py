@@ -1,8 +1,10 @@
 from PIL import Image
 
-from src.constants.GenericConstants import degree_symbol
-from src.configurations.CreateDisplayElements import CreateDisplay
-from src.constants.DisplayConstants import SCREEN_WIDTH, SCREEN_HEIGHT, BLACK_TRANSPARENT, WHITE_TRANSPARENT
+
+from application.constants.GenericConstants import degree_symbol
+from application.configurations.CreateDisplayElements import CreateDisplay
+from application.constants.DisplayConstants import SCREEN_WIDTH, SCREEN_HEIGHT, BLACK_TRANSPARENT, WHITE_TRANSPARENT, \
+    BLACK_OPAQUE
 
 
 class BuildClockScreen:
@@ -19,13 +21,13 @@ class BuildClockScreen:
         vertical_padding = 25
         horizontal_padding = 5
 
-        # create a new image - Basically a transparent background for adding an icon later
-        img = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), BLACK_TRANSPARENT)
-        img_w, img_h = img.size
+        # create foreground (transparent) & background (opaque) layers to be used for icons & text respectively
+        foreground = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), BLACK_TRANSPARENT)
+        background = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), BLACK_OPAQUE)
+        img_w, img_h = foreground.size
 
         # Build a drawing context
-        kntxt = Image.new('RGBA', (SCREEN_WIDTH, SCREEN_HEIGHT), BLACK_TRANSPARENT)
-        drawing_context = self.create_display.build_context(kntxt)
+        drawing_context = self.create_display.build_context(background)
 
         # build the fonts & texts
         # time
@@ -70,9 +72,9 @@ class BuildClockScreen:
         drawing_context.text(((img_w - weather_w) / 2, (vertical_padding + time_h + date_h)),
                              weather_text, font=weather_font, fill=WHITE_TRANSPARENT, padx=5)
         # weather - icon
-        kntxt.paste(weather_icon, (weather_icon_x, weather_icon_y))
-        # kntxt.paste(wind_icon, (wind_icon_x, wind_icon_y))
-        final_media = Image.alpha_composite(img, kntxt)
-        img.close(), kntxt.close()
+        foreground.paste(weather_icon, (weather_icon_x, weather_icon_y))
+        # background.paste(wind_icon, (wind_icon_x, wind_icon_y))
+        final_media = Image.alpha_composite(background,foreground)
+        foreground.close(), background.close()
 
         self.create_display.display_information(final_media)

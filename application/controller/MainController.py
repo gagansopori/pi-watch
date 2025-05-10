@@ -1,11 +1,11 @@
 import time
 
-from src.constants.DisplayConstants import TWENTY_MINS, FIVE_SEC_DELAY
-from src.model.WeatherModel import WeatherModel
-from src.views.BuildClockScreen import BuildClockScreen
-from src.services.FetchCurrentWeather import RetrieveLocationBasedWeatherInfo
-from src.services.FetchDateTime import RetrieveDateAndTime
-from src.services.FetchUserLocation import FetchUserLocation
+from application.constants.DisplayConstants import TWENTY_MINS, FIVE_SEC_DELAY
+from application.model.WeatherModel import WeatherModel
+from application.views.BuildClockScreen import BuildClockScreen
+from application.services.FetchCurrentWeather import RetrieveLocationBasedWeatherInfo
+from application.services.FetchDateTime import RetrieveDateAndTime
+from application.services.FetchUserLocation import FetchUserLocation
 
 
 class MainController:
