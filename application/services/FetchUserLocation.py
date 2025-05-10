@@ -1,20 +1,20 @@
 import urllib.request, json
 from urllib.error import URLError
 
-from src.model.LocationModel import LocationModel
-from src.constants.GenericConstants import ip_api_url
+from application.model.LocationModel import LocationModel
+from application.constants.GenericConstants import ip_api_url
 
 
 class FetchUserLocation:
     def __init__(self):
         self.geo_coordinates = LocationModel()
 
-    '''
-    This method hits a ip-based geo-location service to determine the geographical coordinates of your location which 
-    would be used in getting the weather information for your area from the weather service.
-    @:returns - latitude, longitude
-    '''
     def get_location(self) -> LocationModel:
+        """
+        This method hits an ip-based geolocation service to determine the geographical coordinates of your location
+        which would be used in getting the weather information for your area from the weather service.
+        :returns: latitude, longitude
+        """
         try:
             with urllib.request.urlopen(ip_api_url) as url_request:
                 url_response = url_request.read().decode('utf-8')

@@ -1,7 +1,7 @@
 """
 @author: Gagan Sopori
 """
-from src.controller.MainController import MainController
+from application.controller.MainController import MainController
 
 
 def main():

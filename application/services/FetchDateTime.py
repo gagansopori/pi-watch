@@ -1,6 +1,6 @@
 import time as Time
 
-from src.model.DateTimeModel import SystemDateAndTimeModel
+from application.model.DateTimeModel import SystemDateAndTimeModel
 
 
 class RetrieveDateAndTime:

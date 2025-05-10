@@ -1,8 +1,8 @@
 import urllib.request, json
 from urllib.error import URLError
 
-from src.model.WeatherModel import WeatherModel
-from src.constants.GenericConstants import base_weather_url, owm_key, imperial_countries
+from application.model.WeatherModel import WeatherModel
+from application.constants.GenericConstants import base_weather_url, owm_key, imperial_countries
 
 
 class RetrieveLocationBasedWeatherInfo:
@@ -11,10 +11,10 @@ class RetrieveLocationBasedWeatherInfo:
 
     def get_weather(self, geo_coordinates) -> WeatherModel:
         """
-        This method takes geographical coordinates & calls the open-weather api to determine the weather conditions for
-        a given set of geo-coordinates.
-        @:param - latitude, longitude
-        @:return - current_temperature, weather_condition, icon_id
+        This method takes geographical coordinates & calls the open-weather-map api to determine the weather conditions
+        for a given set of geo-coordinates.
+        :param geo_coordinates:
+        :return weather_data:
         """
         # Build the location based url
         weather_url = f'{base_weather_url}lat={geo_coordinates.latitude}&lon={geo_coordinates.longitude}&appid={owm_key}'
@@ -33,6 +33,13 @@ class RetrieveLocationBasedWeatherInfo:
         return self.weather_data
 
     def prepare_weather_data(self, response_data) -> None:
+        """
+        The OWM api returns a multitude of weather monitoring parameters in the response, not all of them are needed in
+        this service at the moment. This method can be altered to add or remove any parameters in the final data object
+        depending on the use-case.
+        :param response_data:
+        :return:
+        """
         if 'Error' not in response_data.keys():
             # country
             self.weather_data.country = response_data['sys']['country']
@@ -59,9 +66,9 @@ class RetrieveLocationBasedWeatherInfo:
         """
         Helper method to convert the temperature from Kelvin Scale to Fahrenheit or Celsius depending on the metric
         system the given country uses.
-        :param - WeatherModel
-        :param - float (Kelvin)
-        :return - float (Fahrenheit/Celsius)
+        :param current_temp:
+        :param weather_data:
+        :return:
         """
         if weather_data.country in imperial_countries:
             return (current_temp * (9 / 5)) - 459.67

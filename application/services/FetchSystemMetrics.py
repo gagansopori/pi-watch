@@ -1,8 +1,8 @@
 import time as Time
 import os
 
-from src.constants.GenericConstants import cpu_temp_filepath
-from src.configurations.CreateDisplayElements import CreateDisplay
+from application.constants.GenericConstants import cpu_temp_filepath
+from application.configurations.CreateDisplayElements import CreateDisplay
 
 
 def fetch_cpu_temp():
