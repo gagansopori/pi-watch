@@ -6,7 +6,7 @@
 
 
 ## Introduction
-I recently came across an IO board from PiMoroni called [Pirate Audio: Speaker for Raspberry Pi](https://shop.pimoroni.com/products/pirate-audio-mini-speaker?variant=31189753692243). 
+I recently came across an IO board from Pimoroni called [Pirate Audio: Speaker for Raspberry Pi](https://shop.pimoroni.com/products/pirate-audio-mini-speaker?variant=31189753692243). 
 This audio board has a small `1.3" (240x240) IPS LCD` display & a `1W speaker`. The display has an SPI interface and 
 uses the `st7789` controller module & the audio is controlled by the onboard `MAX98357A` DAC chip. <p/>
 ![PIM485](https://cdn.shopify.com/s/files/1/0174/1800/products/pirate-audio-1_192x192.jpg?v=1574158580) ![PIM485](https://cdn.shopify.com/s/files/1/0174/1800/products/Pirate_Audio_Smol_Speaker_1_of_3_192x192.jpg?v=1574166432)<br/>
