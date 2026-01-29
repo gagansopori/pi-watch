@@ -24,16 +24,16 @@ I'm going to assume that you already have a working pi set-up with your choice o
 * Python-3 - All Pi OS's come with Python2 (unless you're using a LITE version, in which case you'll only get bare-metal OS files) which is now EOL & this app was written in Python3.
   * To install Python-3 on your pi you need to do the following:
       ```
-      sudo apt-get install python3
+      sudo apt install python3
       ```
   * After you've installed python, you'll need to a few other libraries as a pre-requisite to the display driver module we'll install later:
     ```
-    sudo apt-get update
-    sudo apt-get install python3-rpi.gpio python3-spidev python3-pil python3-numpy
+    sudo apt update
+    sudo apt install python3-rpi.gpio python3-spidev python3-pil python3-numpy
     ```
 * Git - To be able to clone the project initially & to pull any future updates and/or bug fixes.
   ```
-  sudo apt-get install git
+  sudo apt install git
   ```
 * [ST7789 Display Module](https://pypi.org/project/ST7789/) - This is the driver for the display attached to the hat we're using.
   ```
